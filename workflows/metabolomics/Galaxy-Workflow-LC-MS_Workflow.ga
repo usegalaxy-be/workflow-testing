@@ -2,7 +2,7 @@
     "a_galaxy_workflow": "true",
     "annotation": "",
     "format-version": "0.1",
-    "name": "LC-MS Workflow",
+    "name": "Mass spectrometry: LC-MS analysis workflow",
     "steps": {
         "0": {
             "annotation": "",
