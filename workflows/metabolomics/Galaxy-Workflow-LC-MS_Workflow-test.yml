@@ -1,0 +1,33 @@
+- doc: "Test sample data for Sequence analysis:Mapping"
+  job:
+    HU_neg_048.mzML:
+      class: File
+      location: https://zenodo.org/api/files/255b1f9f-8a58-4d9a-8f15-2343a75c9569/HU_neg_048.mzML
+      filetype: fastqsanger.gz
+    Chromatograms collection:   
+      class: Collection
+      collection_type: list
+      elements:
+        - identifier: HU_neg_090
+          class: File
+          location: https://zenodo.org/api/files/255b1f9f-8a58-4d9a-8f15-2343a75c9569/HU_neg_048.mzML
+          # - identifier: mgf2
+          # - class: File
+          # - location: https://zenodo.org/record/839701/files/2016_Jan_12_QE2_46.mgf
+          #-  - identifier: mgf3
+          # - class: File
+          # - location: https://zenodo.org/record/839701/files/2016_Jan_12_QE2_47.mgf
+  outputs:
+    bowtie2_mapping_stats:
+      asserts:
+        has_tex t :
+          text: '49829 (99.83%) aligned concordantly 0 times'
+    bam_stats_1:
+      asserts:
+        has_text : 
+          text: 'SN	reads mapped:	51492'
+    bam_stats_2:
+      asserts:
+        has_text:  
+          text: 'SN	raw total sequences:	45778'
+
