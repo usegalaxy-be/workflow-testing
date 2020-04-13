@@ -20,7 +20,7 @@
   outputs:
     bowtie2_mapping_stats:
       asserts:
-        has_tex t :
+        has_text :
           text: '49829 (99.83%) aligned concordantly 0 times'
     bam_stats_1:
       asserts:
