@@ -1,0 +1,15 @@
+- doc: Test Salmon Ath PE workflow
+  job: Salmon_PE_Ath-job.yml
+  outputs:
+    Gene level summarization:
+      asserts:
+        has_text:
+          text: 'AT1G01030	109'
+      asserts:
+        has_text:
+          text: 'AT1G01020	374'
+    Forward reads quality report raw:
+      asserts:
+        has_text:
+            text: '1	30.118157062818867	31.0	30.0	33.0	26.0	34.0'
+            test: '2	29.79968074118126	31.0	30.0	34.0	25.0	34.0'

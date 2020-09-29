@@ -1,0 +1,7 @@
+forward:
+  class: File
+  path: test-data/forward_reads_Ath.fastq.bz2
+reverse:
+  class: File
+  path: test-data/reverse_reads_Ath.fastq.bz2
+
