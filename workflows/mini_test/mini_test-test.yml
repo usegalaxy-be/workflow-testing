@@ -4,5 +4,5 @@
     Cut output:
       asserts:
         has_text:
-          text: 'chr21'
+          text: 'chr22'
 
