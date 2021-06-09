@@ -1,0 +1,65 @@
+name: Test the workflows against UseGalaxy BE
+schedule:
+  # Run every day at midnight 
+  - cron: '00 00 * * *'
+jobs:
+  run_planemo_test:
+    name: Checkout repo   
+    runs-on: ubuntu-18.04
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      id: cache-venv  # name for referring later
+      with:
+        path: ./.venv/  # what we cache: the virtualenv
+        # The cache key depends on requirements.txt
+        key: venv-planemo
+          #restore-keys: |
+          #${{ runner.os }}-venv-
+    # Build a virtualenv, but only if it doesn't already exist
+    - run: python -m venv ./.venv && . ./.venv/bin/activate && 
+           pip install planemo
+           pip install galaxy-parsec
+      if: steps.cache-venv.outputs.cache-hit != 'true'
+    # Run tests
+    # Note that you have to activate the virtualenv in every step
+    # because GitHub actions doesn't preserve the environment
+    #- run: . ./.venv/bin/activate && nosetests tests/
+    - name: Cache venv
+      uses: actions/cache@v2
+      with:
+        path: |
+          ./.venv
+    - name: Run planemo tests
+      run: |
+        # this runs the tests using planemo, parses the results and saves it ready to be pushed as a post in test_reults.md
+        ./run_workflow_tests.sh ${{ secrets.GALAXY_API_KEY }}
+    - name: Save test_results.txt to use in next job
+      uses: actions/upload-artifact@master
+      with:
+        name: test_results.md
+        path: ./test_results.md
+  #commit_test_results:
+    #steps:
+    #- uses: actions/checkout@v2
+      ### need to define the branch   gh-pages
+    #- uses: actions/download-artifact@master
+      #with:
+        #name: test_results.md
+        #path: test_results.md
+    #- run: | 
+        #post_name=$(date '+%Y-%m-%d').md
+        #mv test_results _posts/$(post_name)
+    #- uses: peter-evans/create-pull-request@v2
+      #with:
+        #token: ${{ secrets.GITHUB_TOKEN }}
+        #commit-message: "Update workflow tests"
+        #title: "Weekly workflow tests on UseGalaxy.be"
+        #body: "Automated tests"
+        #labels: Automation
+        #branch: gh-pages
+        ##base: master
