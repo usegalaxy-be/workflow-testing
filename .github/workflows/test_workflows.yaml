@@ -53,7 +53,7 @@ jobs:
     - name: Run planemo tests
       run: |
         # this runs the tests using planemo, parses the results and saves it ready to be pushed as a post in test_reults.md
-        ./run_workflow_tests.sh ${{ secrets.GALAXY_API_KEY }}
+        sh run_workflow_tests.sh ${{ secrets.GALAXY_API_KEY }}
     - name: Save test_results.txt to use in next job
       uses: actions/upload-artifact@master
       with:
