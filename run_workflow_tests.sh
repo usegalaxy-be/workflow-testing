@@ -5,6 +5,7 @@
 base_dir="/home/runner/work/workflow-testing/workflow-testing/"
 GALAXY_URL="https://usegalaxy.be"
 GALAXY_BE_KEY=$1
+echo $GALAXY_BE_KEY
 date_suffix=$(date '+%Y_%m_%d')
 
 echo "## Tests executed on date: $date_suffix" > test_results.md
@@ -37,13 +38,14 @@ planemo test \
 	"$wf_path";
 planemo_exit_code=$?
 set -e
-
+cat '/home/runner/work/workflow-testing/workflow-testing/tool_test_output.html'
 if (( planemo_exit_code > 0 )); then
 	history_id=$(parsec histories get_histories --name "$history_name" | jq -r .[0].id)
 	history_slug=$(parsec histories update_history --importable $history_id | jq -r .username_and_slug)
 
 	#echo "<html><head></head><body style=\"margin:0;padding:0;\"><iframe style=\"border:none;width:100%;height:100%;\" src=\"https://usegalaxy.eu/$history_slug\"></iframe></body></html>"> history.html
 else
+    echo "FAIL"
 	# Otherwise immediately delete
 	history_id=$(parsec histories get_histories --name "$history_name" | jq -r .[0].id)
 	parsec histories delete_history --purge $history_id
