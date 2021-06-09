@@ -18,8 +18,8 @@ jobs:
 
     - uses: syphar/restore-virtualenv@v1
       id: cache-virtualenv
-      #with:
-        #requirement_files: requirements.txt  # this is optional
+      with:
+        requirement_files: requirements.txt  # this is optional
 
     - uses: syphar/restore-pip-download-cache@v1
       if: steps.cache-virtualenv.outputs.cache-hit != 'true'
@@ -28,8 +28,7 @@ jobs:
       # requirements-files have changed.
     - run: | 
            #python -m venv ./.venv && . ./.venv/bin/activate && 
-           pip install planemo
-           pip install galaxy-parsec
+           pip install -r requirements.txt
       if: steps.cache-virtualenv.outputs.cache-hit != 'true'
       #if: steps.cache-venv.outputs.cache-hit != 'true'
 
