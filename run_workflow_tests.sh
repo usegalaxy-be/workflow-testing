@@ -2,11 +2,16 @@
 #set -ex
 #: ${PLANEMO_OPTIONS:=""}  # e.g. PLANEMO_OPTIONS="--verbose"
 
-base_dir="/home/runner/work/workflow-testing/workflow-testing/"
 GALAXY_URL="https://usegalaxy.be"
 GALAXY_BE_KEY=$1
-echo $GALAXY_BE_KEY
 date_suffix=$(date '+%Y_%m_%d')
+echo \
+"__default: belgium
+  belgium:
+    key: $GALAXY_BE_KEY
+    url: $GALAXY_URL" > parsec_conf.yml
+
+exit
 
 echo "## Tests executed on date: $date_suffix" > test_results.md
 
@@ -20,9 +25,8 @@ echo "## Tests executed on date: $date_suffix" > test_results.md
 
 
 # test first with just the mini_test
-#wf_path="$base_dir/workflows/mini_test/mini_test.ga"
-pwd
-ls
+#pwd
+#ls
 wf_path="./workflows/mini_test/mini_test.ga"
 wf_name=`cat $wf_path | jq -r .name`
 history_name=$wf_name\_$date_suffix
@@ -38,17 +42,16 @@ planemo test \
 	"$wf_path";
 planemo_exit_code=$?
 set -e
-cat '/home/runner/work/workflow-testing/workflow-testing/tool_test_output.html'
 if (( planemo_exit_code > 0 )); then
-	history_id=$(parsec histories get_histories --name "$history_name" | jq -r .[0].id)
-	history_slug=$(parsec histories update_history --importable $history_id | jq -r .username_and_slug)
+	history_id=$(parsec --path parsec_conf.yml histories get_histories --name "$history_name" | jq -r .[0].id)
+	history_slug=$(parsec --path parsec_conf.yml histories update_history --importable $history_id | jq -r .username_and_slug)
 
 	#echo "<html><head></head><body style=\"margin:0;padding:0;\"><iframe style=\"border:none;width:100%;height:100%;\" src=\"https://usegalaxy.eu/$history_slug\"></iframe></body></html>"> history.html
 else
     echo "FAIL"
 	# Otherwise immediately delete
-	history_id=$(parsec histories get_histories --name "$history_name" | jq -r .[0].id)
-	parsec histories delete_history --purge $history_id
+	history_id=$(parsec --path parsec_conf.yml histories get_histories --name "$history_name" | jq -r .[0].id)
+	parsec --path parsec_conf.yml histories delete_history --purge $history_id
     echo "\t- Workflow $wf_name "  >> test_results.md
 	#echo "<html><head></head><body>Test was completely successful</body></html>"> history.html
 fi
