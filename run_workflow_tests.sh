@@ -2,8 +2,9 @@
 #set -ex
 #: ${PLANEMO_OPTIONS:=""}  # e.g. PLANEMO_OPTIONS="--verbose"
 
+base_dir="/home/runner/work/workflow-testing/workflow-testing/"
 GALAXY_URL="https://usegalaxy.be"
-GALAXY_USER_KEY=$1
+GALAXY_BE_KEY=$1
 date_suffix=$(date '+%Y_%m_%d')
 
 echo "## Tests executed on date: $date_suffix" > test_results.md
@@ -18,7 +19,7 @@ echo "## Tests executed on date: $date_suffix" > test_results.md
 
 
 # test first with just the mini_test
-wf_path='./workflows/mini_test/mini_test.ga'
+wf_path="$base_dir/workflows/mini_test/mini_test.ga"
 wf_name=`cat $wf_path | jq -r .name`
 history_name=$wf_name\_$date_suffix
 # planemo test --history_name $history_name --galaxy_user_key $gx_key --galaxy_url https://usegalaxy.be --no_shed_install --engine external_galaxy $wf_path >> test_results.txt
@@ -27,7 +28,7 @@ set +e # Do not die if planemo returns non-zero
 planemo test \
 	--history_name "$history_name" \
 	--galaxy_url "$GALAXY_URL" \
-	--galaxy_user_key "$GALAXY_USER_KEY" \
+	--galaxy_user_key "$GALAXY_BE_KEY" \
 	--no_shed_install \
 	--engine external_galaxy \
 	"$wf_path";
