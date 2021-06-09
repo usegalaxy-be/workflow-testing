@@ -21,7 +21,8 @@ echo "## Tests executed on date: $date_suffix" > test_results.md
 # test first with just the mini_test
 #wf_path="$base_dir/workflows/mini_test/mini_test.ga"
 pwd
-wf_path="./workflows/mini_test/mini_test.ga"
+ls
+wf_path="/home/runner/work/workflow-testing/workflow-testing/workflows/mini_test/mini_test.ga"
 wf_name=`cat $wf_path | jq -r .name`
 history_name=$wf_name\_$date_suffix
 # planemo test --history_name $history_name --galaxy_user_key $gx_key --galaxy_url https://usegalaxy.be --no_shed_install --engine external_galaxy $wf_path >> test_results.txt

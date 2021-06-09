@@ -14,6 +14,8 @@ jobs:
         working-directory: .
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: 'master'
     - uses: actions/setup-python@v2
 
     - uses: syphar/restore-virtualenv@v1
