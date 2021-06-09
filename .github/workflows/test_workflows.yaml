@@ -56,28 +56,31 @@ jobs:
       run: |
         # this runs the tests using planemo, parses the results and saves it ready to be pushed as a post in test_reults.md
         sh run_workflow_tests.sh ${{ secrets.GALAXY_BE_KEY }}
+        cat test_results.md
     - name: Save test_results.txt to use in next job
       uses: actions/upload-artifact@master
       with:
         name: test_results.md
         path: ./test_results.md
-  #commit_test_results:
-    #steps:
-    #- uses: actions/checkout@v2
-      ### need to define the branch   gh-pages
-    #- uses: actions/download-artifact@master
-      #with:
-        #name: test_results.md
-        #path: test_results.md
-    #- run: | 
-        #post_name=$(date '+%Y-%m-%d').md
-        #mv test_results _posts/$(post_name)
-    #- uses: peter-evans/create-pull-request@v2
-      #with:
-        #token: ${{ secrets.GITHUB_TOKEN }}
-        #commit-message: "Update workflow tests"
-        #title: "Weekly workflow tests on UseGalaxy.be"
-        #body: "Automated tests"
-        #labels: Automation
-        #branch: gh-pages
-        ##base: master
+  commit_test_results:
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: 'gh-pages'
+      ## need to define the branch   gh-pages
+    - uses: actions/download-artifact@master
+      with:
+        name: test_results.md
+        path: test_results.md
+    - run: | 
+        post_name=$(date '+%Y-%m-%d').md
+        mv test_results.md _posts/$(post_name)
+    - uses: peter-evans/create-pull-request@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: "Update workflow tests"
+        title: "Weekly workflow tests on UseGalaxy.be"
+        body: "Automated tests"
+        labels: Automation
+        branch: gh-pages
+        #base: master
