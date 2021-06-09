@@ -1,0 +1,8 @@
+- doc: Test mini_test workflow
+  job: mini_test-job.yml
+  outputs:
+    Cut output:
+      asserts:
+        has_text:
+          text: 'chr21'
+
