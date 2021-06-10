@@ -13,7 +13,18 @@ echo \
 
 exit
 
-echo "## Tests executed on date: $date_suffix" > test_results.md
+echo \
+"---
+title: Workflow tests
+layout: post
+categories: [Tests]
+description: \"Workflow sts from $date_suffix\"
+---
+
+| Workflow name | Testing results |
+| :------------- |: ---------------:|" > test_results.md
+
+
 
 
 # in production it should iterate over all .ga files it can find 
@@ -48,11 +59,10 @@ if (( planemo_exit_code > 0 )); then
 
 	#echo "<html><head></head><body style=\"margin:0;padding:0;\"><iframe style=\"border:none;width:100%;height:100%;\" src=\"https://usegalaxy.eu/$history_slug\"></iframe></body></html>"> history.html
 else
-    echo "FAIL"
 	# Otherwise immediately delete
 	history_id=$(parsec --path parsec_conf.yml histories get_histories --name "$history_name" | jq -r .[0].id)
 	parsec --path parsec_conf.yml histories delete_history --purge $history_id
-    echo "\t- Workflow $wf_name "  >> test_results.md
+    echo "| $wf_name | ![](https://img.shields.io/static/v1?label=workflow&message=passing&color=green) |" >> test_results.md
 	#echo "<html><head></head><body>Test was completely successful</body></html>"> history.html
 fi
 exit $planemo_exit_code
