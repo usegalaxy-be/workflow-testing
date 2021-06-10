@@ -64,6 +64,7 @@ jobs:
         path: ./test_results.md
   commit_test_results:
     name: Commit changes to gh-pages
+    needs: run_planemo_test 
     runs-on: ubuntu-latest
     defaults:
       run:
