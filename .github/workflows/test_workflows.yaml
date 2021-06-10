@@ -83,7 +83,7 @@ jobs:
         path: .
     - run: | 
         post_name=$(date '+%Y-%m-%d').md
-        mv test_results.md _posts/$(post_name)
+        mv test_results.md _posts/$post_name
     - uses: peter-evans/create-pull-request@v3.10.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
