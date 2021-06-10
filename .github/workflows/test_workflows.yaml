@@ -63,6 +63,12 @@ jobs:
         name: test_results.md
         path: ./test_results.md
   commit_test_results:
+    name: Commit changes to gh-pages
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
     steps:
     - uses: actions/checkout@v2
       with:
