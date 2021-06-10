@@ -11,14 +11,13 @@ echo \
     key: $GALAXY_BE_KEY
     url: $GALAXY_URL" > parsec_conf.yml
 
-exit
 
 echo \
 "---
 title: Workflow tests
 layout: post
 categories: [Tests]
-description: \"Workflow sts from $date_suffix\"
+description: \"Workflow tests from $date_suffix\"
 ---
 
 | Workflow name | Testing results |
