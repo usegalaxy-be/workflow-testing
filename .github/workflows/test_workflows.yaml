@@ -4,6 +4,7 @@ on: push
   #schedule:
     # Run every day at midnight 
     #- cron: '00 00 * * *'
+if: github.ref == 'refs/heads/master'
 jobs:
   run_planemo_test:
     name: Checkout repo   
@@ -82,7 +83,7 @@ jobs:
     - run: | 
         post_name=$(date '+%Y-%m-%d').md
         mv test_results.md _posts/$(post_name)
-    - uses: peter-evans/create-pull-request@v2
+    - uses: peter-evans/create-pull-request@v3.10.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: "Update workflow tests"
