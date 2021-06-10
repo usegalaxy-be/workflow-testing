@@ -7,9 +7,9 @@ GALAXY_BE_KEY=$1
 date_suffix=$(date '+%Y_%m_%d')
 echo \
 "__default: belgium
-  belgium:
-    key: $GALAXY_BE_KEY
-    url: $GALAXY_URL" > parsec_conf.yml
+belgium:
+  key: $GALAXY_BE_KEY
+  url: $GALAXY_URL" > parsec_conf.yml
 
 
 echo \
