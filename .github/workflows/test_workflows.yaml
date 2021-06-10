@@ -5,8 +5,8 @@ on: push
     # Run every day at midnight 
     #- cron: '00 00 * * *'
 jobs:
-  if: github.ref == 'refs/heads/master'
   run_planemo_test:
+    if: github.ref == 'refs/heads/master'
     name: Checkout repo   
     runs-on: ubuntu-latest
     defaults:
