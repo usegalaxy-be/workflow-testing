@@ -91,5 +91,5 @@ jobs:
         title: "Weekly workflow tests on UseGalaxy.be"
         body: "Automated tests"
         labels: Automation
-        branch: gh-pages
-        #base: master
+        branch: workflow-test-updates
+        base: gh-pages
