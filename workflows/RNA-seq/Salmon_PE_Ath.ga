@@ -20,21 +20,21 @@
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 206,
-                "top": 495
+                "bottom": 515.5,
+                "height": 61,
+                "left": 332,
+                "right": 532,
+                "top": 454.5,
+                "width": 200,
+                "x": 332,
+                "y": 454.5
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false}",
             "tool_version": null,
             "type": "data_input",
             "uuid": "56bb2115-a5ef-4a06-b5ae-de2256c4e5a9",
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "5294e7cf-5948-4d0c-9d32-d8af5849bb2b"
-                }
-            ]
+            "workflow_outputs": []
         },
         "1": {
             "annotation": "",
@@ -52,21 +52,21 @@
             "name": "Input dataset",
             "outputs": [],
             "position": {
-                "left": 210,
-                "top": 570
+                "bottom": 590.5,
+                "height": 61,
+                "left": 336,
+                "right": 536,
+                "top": 529.5,
+                "width": 200,
+                "x": 336,
+                "y": 529.5
             },
             "tool_id": null,
             "tool_state": "{\"optional\": false}",
             "tool_version": null,
             "type": "data_input",
             "uuid": "70ff6417-1d5c-4535-9fee-55f36e432d8a",
-            "workflow_outputs": [
-                {
-                    "label": null,
-                    "output_name": "output",
-                    "uuid": "a9144bb0-e86f-46a8-8bfa-746ffaa6e545"
-                }
-            ]
+            "workflow_outputs": []
         },
         "2": {
             "annotation": "",
@@ -82,11 +82,11 @@
             "inputs": [
                 {
                     "description": "runtime parameter for tool FastQC",
-                    "name": "adapters"
+                    "name": "contaminants"
                 },
                 {
                     "description": "runtime parameter for tool FastQC",
-                    "name": "contaminants"
+                    "name": "input_file"
                 },
                 {
                     "description": "runtime parameter for tool FastQC",
@@ -106,32 +106,37 @@
                 }
             ],
             "position": {
-                "left": 527,
-                "top": 205
+                "bottom": 426.5,
+                "height": 262,
+                "left": 653,
+                "right": 853,
+                "top": 164.5,
+                "width": 200,
+                "x": 653,
+                "y": 164.5
             },
-            "post_job_actions": {
-                "HideDatasetActiontext_file": {
-                    "action_arguments": {},
-                    "action_type": "HideDatasetAction",
-                    "output_name": "text_file"
-                }
-            },
+            "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.72",
             "tool_shed_repository": {
-                "changeset_revision": "3e1cdf5406db",
+                "changeset_revision": "9da02be9c6cc",
                 "name": "fastqc",
                 "owner": "devteam",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"adapters\": {\"__class__\": \"RuntimeValue\"}, \"contaminants\": {\"__class__\": \"RuntimeValue\"}, \"input_file\": {\"__class__\": \"ConnectedValue\"}, \"kmers\": \"7\", \"limits\": {\"__class__\": \"RuntimeValue\"}, \"min_length\": \"\", \"nogroup\": \"false\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"contaminants\": {\"__class__\": \"RuntimeValue\"}, \"input_file\": {\"__class__\": \"RuntimeValue\"}, \"limits\": {\"__class__\": \"RuntimeValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "0.72",
             "type": "tool",
-            "uuid": "4cdad864-8123-4a8e-8dec-ab09346560c3",
+            "uuid": "42f35bbf-9558-4e7e-b5fd-07b0f671dd77",
             "workflow_outputs": [
+                {
+                    "label": "Forward reads quality report raw",
+                    "output_name": "text_file",
+                    "uuid": "6da9e7b3-2c36-46ca-b6e0-33b57bfdca08"
+                },
                 {
                     "label": null,
                     "output_name": "html_file",
-                    "uuid": "6c6bd0cc-cb7e-4e97-9027-7df8ff708e19"
+                    "uuid": "d38ed4f8-226f-4872-af48-c7dff9051b42"
                 }
             ]
         },
@@ -149,11 +154,11 @@
             "inputs": [
                 {
                     "description": "runtime parameter for tool FastQC",
-                    "name": "adapters"
+                    "name": "contaminants"
                 },
                 {
                     "description": "runtime parameter for tool FastQC",
-                    "name": "contaminants"
+                    "name": "input_file"
                 },
                 {
                     "description": "runtime parameter for tool FastQC",
@@ -173,32 +178,37 @@
                 }
             ],
             "position": {
-                "left": 511,
-                "top": 691
+                "bottom": 912.5,
+                "height": 262,
+                "left": 637,
+                "right": 837,
+                "top": 650.5,
+                "width": 200,
+                "x": 637,
+                "y": 650.5
             },
-            "post_job_actions": {
-                "HideDatasetActiontext_file": {
-                    "action_arguments": {},
-                    "action_type": "HideDatasetAction",
-                    "output_name": "text_file"
-                }
-            },
+            "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastqc/fastqc/0.72",
             "tool_shed_repository": {
-                "changeset_revision": "3e1cdf5406db",
+                "changeset_revision": "9da02be9c6cc",
                 "name": "fastqc",
                 "owner": "devteam",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"adapters\": {\"__class__\": \"RuntimeValue\"}, \"contaminants\": {\"__class__\": \"RuntimeValue\"}, \"input_file\": {\"__class__\": \"ConnectedValue\"}, \"kmers\": \"7\", \"limits\": {\"__class__\": \"RuntimeValue\"}, \"min_length\": \"\", \"nogroup\": \"false\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"contaminants\": {\"__class__\": \"RuntimeValue\"}, \"input_file\": {\"__class__\": \"RuntimeValue\"}, \"limits\": {\"__class__\": \"RuntimeValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "0.72",
             "type": "tool",
-            "uuid": "8960a1d6-dc8b-4333-bdd7-8b7bd8cd9e72",
+            "uuid": "eb72ce86-836f-4c17-b49b-b71238384f14",
             "workflow_outputs": [
+                {
+                    "label": "Reverse reads quality report raw",
+                    "output_name": "text_file",
+                    "uuid": "4c99865f-d621-4e57-b3cf-5be07b596d68"
+                },
                 {
                     "label": null,
                     "output_name": "html_file",
-                    "uuid": "c9336e08-88b6-42e2-8060-d2dff736e446"
+                    "uuid": "ea030620-a659-4dad-8408-00918b159f67"
                 }
             ]
         },
@@ -239,8 +249,14 @@
                 }
             ],
             "position": {
-                "left": 854,
-                "top": 527
+                "bottom": 818.5,
+                "height": 332,
+                "left": 980,
+                "right": 1180,
+                "top": 486.5,
+                "width": 200,
+                "x": 980,
+                "y": 486.5
             },
             "post_job_actions": {
                 "HideDatasetActionfastq_out_r1_paired": {
@@ -279,7 +295,7 @@
         },
         "5": {
             "annotation": "",
-            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/0.14.1",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/0.14.1.2",
             "errors": null,
             "id": 5,
             "input_connections": {
@@ -311,31 +327,37 @@
                 }
             ],
             "position": {
-                "left": 1328,
-                "top": 577.5
+                "bottom": 819,
+                "height": 282,
+                "left": 1454,
+                "right": 1654,
+                "top": 537,
+                "width": 200,
+                "x": 1454,
+                "y": 537
             },
             "post_job_actions": {},
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/0.14.1",
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/salmon/salmon/0.14.1.2",
             "tool_shed_repository": {
-                "changeset_revision": "4de6e2e40c7a",
+                "changeset_revision": "7fdb9d1591e2",
                 "name": "salmon",
                 "owner": "bgruening",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"adv\": {\"skipQuant\": \"false\", \"dumpEq\": \"false\", \"dumpEqWeights\": \"false\", \"minAssignedFrags\": \"\", \"biasSpeedSamp\": \"5\", \"fldMax\": \"1000\", \"fldMean\": \"250\", \"fldSD\": \"25\", \"forgettingFactor\": \"0.65\", \"initUniform\": \"false\", \"maxReadOcc\": \"100\", \"noLengthCorrection\": \"false\", \"noEffectiveLengthCorrection\": \"false\", \"noFragLengthDist\": \"false\", \"noBiasLengthThreshold\": \"false\", \"numBiasSamples\": \"2000000\", \"numAuxModelSamples\": \"5000000\", \"numPreAuxModelSamples\": \"5000\", \"useEM\": \"false\", \"rangeFactorizationBins\": \"0\", \"numGibbsSamples\": \"0\", \"noGammaDraw\": \"false\", \"numBootstraps\": \"0\", \"bootstrapReproject\": \"false\", \"thinningFactor\": \"16\", \"perTranscriptPrior\": \"false\", \"sigDigits\": \"3\", \"vbPrior\": \"1e-05\", \"writeOrphanLinks\": \"false\", \"writeUnmappedNames\": \"false\"}, \"gcBias\": \"false\", \"geneMap\": {\"__class__\": \"RuntimeValue\"}, \"incompatPrior\": \"0.0\", \"meta\": \"false\", \"quant_type\": {\"qtype\": \"reads\", \"__current_case__\": 0, \"refTranscriptSource\": {\"TranscriptSource\": \"indexed\", \"__current_case__\": 0, \"index\": \"Arabidopsis_thaliana_COL-0_TAIR10_all_tx_transcriptome_q6\"}, \"input\": {\"single_or_paired\": {\"single_or_paired_opts\": \"paired\", \"__current_case__\": 1, \"input_mate1\": {\"__class__\": \"ConnectedValue\"}, \"input_mate2\": {\"__class__\": \"ConnectedValue\"}, \"orientation\": \"I\", \"strandedness\": \"U\"}}, \"type\": \"quasi\", \"discardOrphansQuasi\": \"false\", \"validmap\": {\"validateMappings\": \"false\", \"__current_case__\": 1}, \"consensusSlack\": \"0\", \"dovetail\": \"false\", \"recoverOrphans\": \"false\", \"writeMappings\": \"false\", \"consistentHits\": \"false\", \"quasiCoverage\": \"\"}, \"seqBias\": \"false\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
-            "tool_version": "0.14.1",
+            "tool_state": "{\"adv\": {\"skipQuant\": \"false\", \"dumpEq\": \"false\", \"dumpEqWeights\": \"false\", \"minAssignedFrags\": null, \"biasSpeedSamp\": \"5\", \"fldMax\": \"1000\", \"fldMean\": \"250\", \"fldSD\": \"25\", \"forgettingFactor\": \"0.65\", \"initUniform\": \"false\", \"maxReadOcc\": \"100\", \"noLengthCorrection\": \"false\", \"noEffectiveLengthCorrection\": \"false\", \"noFragLengthDist\": \"false\", \"noBiasLengthThreshold\": \"false\", \"numBiasSamples\": \"2000000\", \"numAuxModelSamples\": \"5000000\", \"numPreAuxModelSamples\": \"5000\", \"useEM\": \"false\", \"rangeFactorizationBins\": \"0\", \"numGibbsSamples\": \"0\", \"noGammaDraw\": \"false\", \"numBootstraps\": \"0\", \"bootstrapReproject\": \"false\", \"thinningFactor\": \"16\", \"perTranscriptPrior\": \"false\", \"sigDigits\": \"3\", \"vbPrior\": \"1e-05\", \"writeOrphanLinks\": \"false\", \"writeUnmappedNames\": \"false\"}, \"gcBias\": \"false\", \"geneMap\": {\"__class__\": \"RuntimeValue\"}, \"incompatPrior\": \"0.0\", \"meta\": \"false\", \"quant_type\": {\"qtype\": \"reads\", \"__current_case__\": 0, \"refTranscriptSource\": {\"TranscriptSource\": \"indexed\", \"__current_case__\": 0, \"index\": \"Arabidopsis_thaliana_COL-0_TAIR10_all_tx_transcriptome_q6\"}, \"input\": {\"single_or_paired\": {\"single_or_paired_opts\": \"paired\", \"__current_case__\": 1, \"input_mate1\": {\"__class__\": \"ConnectedValue\"}, \"input_mate2\": {\"__class__\": \"ConnectedValue\"}, \"orientation\": \"I\", \"strandedness\": \"U\"}}, \"type\": \"quasi\", \"discardOrphansQuasi\": \"false\", \"validmap\": {\"validateMappings\": \"false\", \"__current_case__\": 1}, \"consensusSlack\": \"0\", \"dovetail\": \"false\", \"recoverOrphans\": \"false\", \"writeMappings\": \"false\", \"consistentHits\": \"false\", \"quasiCoverage\": null}, \"seqBias\": \"false\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.14.1.2",
             "type": "tool",
-            "uuid": "fb3acc45-1577-4088-bbf8-579af5a8b3b5",
+            "uuid": "1abc0480-10e1-4a2c-af32-443dcf518bdd",
             "workflow_outputs": [
                 {
                     "label": null,
                     "output_name": "output_gene_quant",
-                    "uuid": "4646f499-8b56-46ca-a0da-fc55c3f8f344"
+                    "uuid": "1a77521f-d6a1-4c7d-a91a-e8ab98f9b723"
                 },
                 {
                     "label": null,
                     "output_name": "output_quant",
-                    "uuid": "a1781650-6e68-4499-839a-15c879242179"
+                    "uuid": "d96d8a86-b17d-4768-9759-38e02e83fdd4"
                 }
             ]
         },
@@ -350,12 +372,7 @@
                     "output_name": "output_quant"
                 }
             },
-            "inputs": [
-                {
-                    "description": "runtime parameter for tool tximport",
-                    "name": "counts_file"
-                }
-            ],
+            "inputs": [],
             "label": null,
             "name": "tximport",
             "outputs": [
@@ -365,8 +382,14 @@
                 }
             ],
             "position": {
-                "left": 1931.5,
-                "top": 530
+                "bottom": 601.5,
+                "height": 112,
+                "left": 2057.5,
+                "right": 2257.5,
+                "top": 489.5,
+                "width": 200,
+                "x": 2057.5,
+                "y": 489.5
             },
             "post_job_actions": {},
             "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/tximport/tximport/0.1",
@@ -376,15 +399,15 @@
                 "owner": "iuc",
                 "tool_shed": "toolshed.g2.bx.psu.edu"
             },
-            "tool_state": "{\"counts_file\": {\"__class__\": \"RuntimeValue\"}, \"counts_from_abundance\": \"no\", \"gene_id_source_selector\": {\"gene_id_source\": \"external_file\", \"__current_case__\": 1, \"gff_source_selector\": {\"gff_source\": \"built-in\", \"__current_case__\": 0, \"tx2gene\": \"Arabidopsis_thaliana_COL-0_TAIR10_all_tx_tx2gene\"}}, \"input_source_selector\": {\"input_source\": \"salmon\", \"__current_case__\": 1}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_state": "{\"counts_file\": {\"__class__\": \"ConnectedValue\"}, \"counts_from_abundance\": \"no\", \"gene_id_source_selector\": {\"gene_id_source\": \"external_file\", \"__current_case__\": 1, \"gff_source_selector\": {\"gff_source\": \"built-in\", \"__current_case__\": 0, \"tx2gene\": \"Arabidopsis_thaliana_COL-0_TAIR10_all_tx_tx2gene\"}}, \"input_source_selector\": {\"input_source\": \"salmon\", \"__current_case__\": 1}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
             "tool_version": "0.1",
             "type": "tool",
-            "uuid": "e54d3d12-b581-4f02-bfdb-75611926fbca",
+            "uuid": "29ad331e-567c-4513-9c28-c2367f35d942",
             "workflow_outputs": [
                 {
-                    "label": null,
+                    "label": "Gene level summarization",
                     "output_name": "gene_level_values",
-                    "uuid": "f42a9b0e-467c-4ebd-b8a5-90ff0b607ea8"
+                    "uuid": "0870643b-7402-42be-9292-4d64ff61488b"
                 }
             ]
         }
@@ -393,6 +416,6 @@
         "transcriptomics",
         "RNA-seq"
     ],
-    "uuid": "6e99feb5-227e-4cc6-8910-e578674e9a6b",
+    "uuid": "7b5e6870-15e0-427c-a071-9a3d6ea3e502",
     "version": 2
 }

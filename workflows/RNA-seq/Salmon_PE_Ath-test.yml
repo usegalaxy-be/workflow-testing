@@ -8,7 +8,7 @@
       asserts:
         has_text:
           text: 'AT1G01020	374'
-    Forward reads quality report raw:
+    Reverse reads quality report raw:
       asserts:
         has_text:
             text: '1	30.118157062818867	31.0	30.0	33.0	26.0	34.0'
