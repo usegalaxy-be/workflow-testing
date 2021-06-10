@@ -4,9 +4,9 @@ on: push
   #schedule:
     # Run every day at midnight 
     #- cron: '00 00 * * *'
-if: github.ref == 'refs/heads/master'
 jobs:
   run_planemo_test:
+    if: github.ref == 'refs/heads/master'
     name: Checkout repo   
     runs-on: ubuntu-latest
     defaults:
@@ -64,6 +64,7 @@ jobs:
         name: test_results.md
         path: ./test_results.md
   commit_test_results:
+    if: github.ref == 'refs/heads/master'
     steps:
     - uses: actions/checkout@v2
       with:
