@@ -25,7 +25,7 @@ description: \"Workflow tests from $date_suffix\"
 
 
 
-find ./workflows/mini_test/ -name "*.ga" -exec $SHELL -c '
+find ./workflows/ -name "*.ga" -exec $SHELL -c '
     # in production it should iterate over all .ga files it can find 
     function test_workflow () {
         #echo "calling function test_workflow"
