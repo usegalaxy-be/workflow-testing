@@ -22,7 +22,7 @@ description: \"Workflow tests from $date_suffix\"
 
 | Workflow name | Testing results |
 | :------------- |: ---------------:|" > test_results.md
-
+export SHELL='/bin/bash'
 echo $SHELL
 pwd
 find ./workflows/ -name "*.ga" -exec $SHELL -c '
