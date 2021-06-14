@@ -1,0 +1,196 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "Test bowtie2(drosophila genome) + htseq workflow",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "forward"
+                }
+            ],
+            "label": "forward",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 525.5,
+                "height": 61,
+                "left": 507.5,
+                "right": 707.5,
+                "top": 464.5,
+                "width": 200,
+                "x": 507.5,
+                "y": 464.5
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "d19d09c9-1aa6-44e9-84ae-f3606a6072fa",
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "annotation"
+                }
+            ],
+            "label": "annotation",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 639.5,
+                "height": 61,
+                "left": 788,
+                "right": 988,
+                "top": 578.5,
+                "width": 200,
+                "x": 788,
+                "y": 578.5
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "7e653cdd-a04b-4b6c-8658-d424bfe5ba08",
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.3.4.3+galaxy0",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "library|input_1": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Bowtie2",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "bottom": 482.5,
+                "height": 172,
+                "left": 849.5,
+                "right": 1049.5,
+                "top": 310.5,
+                "width": 200,
+                "x": 849.5,
+                "y": 310.5
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/bowtie2/bowtie2/2.3.4.3+galaxy0",
+            "tool_shed_repository": {
+                "changeset_revision": "749c918495f7",
+                "name": "bowtie2",
+                "owner": "devteam",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"analysis_type\": {\"analysis_type_selector\": \"simple\", \"__current_case__\": 0, \"presets\": \"no_presets\"}, \"library\": {\"type\": \"single\", \"__current_case__\": 0, \"input_1\": {\"__class__\": \"ConnectedValue\"}, \"unaligned_file\": \"false\", \"aligned_file\": \"false\"}, \"reference_genome\": {\"source\": \"indexed\", \"__current_case__\": 0, \"index\": \"drosophila_melanogaster_ensembl_r104_BDGP6_genome\"}, \"rg\": {\"rg_selector\": \"do_not_set\", \"__current_case__\": 3}, \"sam_options\": {\"sam_options_selector\": \"no\", \"__current_case__\": 1}, \"save_mapping_stats\": \"false\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.3.4.3+galaxy0",
+            "type": "tool",
+            "uuid": "ae69d210-b228-46d5-8c70-3740b950d63a",
+            "workflow_outputs": [
+                {
+                    "label": "Bowtie2 on input dataset(s): alignments",
+                    "output_name": "output",
+                    "uuid": "3929fbac-acc5-46e2-9b46-d321a0253410"
+                }
+            ]
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.9.1+galaxy1",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "gfffile": {
+                    "id": 1,
+                    "output_name": "output"
+                },
+                "samfile": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "htseq-count",
+            "outputs": [
+                {
+                    "name": "counts",
+                    "type": "tabular"
+                },
+                {
+                    "name": "othercounts",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "bottom": 684.5,
+                "height": 192,
+                "left": 1173,
+                "right": 1373,
+                "top": 492.5,
+                "width": 200,
+                "x": 1173,
+                "y": 492.5
+            },
+            "post_job_actions": {
+                "RenameDatasetActioncounts": {
+                    "action_arguments": {
+                        "newname": "htseq-count"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "counts"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.9.1+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "916cb26bd9d3",
+                "name": "htseq_count",
+                "owner": "lparsons",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"advanced_options\": {\"advanced_options_selector\": \"simple\", \"__current_case__\": 0}, \"featuretype\": \"exon\", \"gfffile\": {\"__class__\": \"ConnectedValue\"}, \"idattr\": \"Parent\", \"minaqual\": \"10\", \"mode\": \"union\", \"samfile\": {\"__class__\": \"ConnectedValue\"}, \"stranded\": \"yes\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.9.1+galaxy1",
+            "type": "tool",
+            "uuid": "4e714189-9388-485a-b9bd-5416e37c3ef1",
+            "workflow_outputs": [
+                {
+                    "label": "htseq-count",
+                    "output_name": "counts",
+                    "uuid": "032f1e48-6024-487c-833f-a5de0f2db8c9"
+                },
+                {
+                    "label": "htseq-count on input dataset(s) (no feature)",
+                    "output_name": "othercounts",
+                    "uuid": "ad5e257f-6e1b-44dc-be8d-ba43e7c74245"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "5346332a-c0d4-48bf-9b41-9eb6f3b7d94a",
+    "version": 5
+}

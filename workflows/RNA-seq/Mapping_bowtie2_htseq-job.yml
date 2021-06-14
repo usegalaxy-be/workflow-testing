@@ -1,0 +1,6 @@
+forward:
+  class: File
+  path: test-data/forward_reads_Ath.fastq.bz2
+annotation:
+  class: File
+  path: test-data/Drosophila_melanogaster.BDGP6.head.gff3

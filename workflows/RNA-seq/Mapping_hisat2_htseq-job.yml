@@ -1,0 +1,6 @@
+forward:
+  class: File
+  path: test-data/forward_reads_Ath.fastq.bz2
+annotation:
+  class: File
+  path: test-data/mus_musculus.GRCm39.head.gff3

@@ -1,0 +1,167 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "RNA-Seq STAR SE - Drosophila",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "forward"
+                }
+            ],
+            "label": "forward",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 650.5,
+                "height": 61,
+                "left": 691.5,
+                "right": 891.5,
+                "top": 589.5,
+                "width": 200,
+                "x": 691.5,
+                "y": 589.5
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "366501df-a0de-437a-a752-46ccd6c758ad",
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Annotation"
+                }
+            ],
+            "label": "Annotation",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 834.5,
+                "height": 61,
+                "left": 712,
+                "right": 912,
+                "top": 773.5,
+                "width": 200,
+                "x": 712,
+                "y": 773.5
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "1e8fad4b-41b8-4676-9e7a-c0697e6d4655",
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/2.7.8a",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "refGenomeSource|GTFconditional|sjdbGTFfile": {
+                    "id": 1,
+                    "output_name": "output"
+                },
+                "singlePaired|input1": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool RNA STAR",
+                    "name": "oformat"
+                },
+                {
+                    "description": "runtime parameter for tool RNA STAR",
+                    "name": "singlePaired"
+                },
+                {
+                    "description": "runtime parameter for tool RNA STAR",
+                    "name": "twopass"
+                },
+                {
+                    "description": "runtime parameter for tool RNA STAR",
+                    "name": "twopass"
+                }
+            ],
+            "label": null,
+            "name": "RNA STAR",
+            "outputs": [
+                {
+                    "name": "output_log",
+                    "type": "txt"
+                },
+                {
+                    "name": "splice_junctions",
+                    "type": "interval"
+                },
+                {
+                    "name": "mapped_reads",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "bottom": 757.5,
+                "height": 302,
+                "left": 1174,
+                "right": 1374,
+                "top": 455.5,
+                "width": 200,
+                "x": 1174,
+                "y": 455.5
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/rgrnastar/rna_star/2.7.8a",
+            "tool_shed_repository": {
+                "changeset_revision": "c772497b2c32",
+                "name": "rgrnastar",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"algo\": {\"params\": {\"settingsType\": \"default\", \"__current_case__\": 0}}, \"chimOutType\": \"\", \"filter\": {\"basic_filters\": null, \"output_params2\": {\"output_select2\": \"no\", \"__current_case__\": 1}}, \"oformat\": {\"outSAMattributes\": [\"NH\", \"HI\", \"AS\", \"nM\", \"ch\"], \"HI_offset\": \"1\", \"outSAMprimaryFlag\": {\"__class__\": \"RuntimeValue\"}, \"outSAMmapqUnique\": \"60\"}, \"perf\": {\"outBAMsortingBinsN\": \"50\"}, \"quantmode_output\": {\"quantMode\": \"-\", \"__current_case__\": 0}, \"refGenomeSource\": {\"geneSource\": \"indexed\", \"__current_case__\": 0, \"GTFconditional\": {\"GTFselect\": \"without-gtf\", \"__current_case__\": 1, \"genomeDir\": \"drosophila_melanogaster_ensembl_r104_BDGP6_genome\", \"sjdbGTFfile\": {\"__class__\": \"RuntimeValue\"}, \"sjdbOverhang\": \"100\"}}, \"singlePaired\": {\"sPaired\": \"single\", \"__current_case__\": 0, \"input1\": {\"__class__\": \"RuntimeValue\"}}, \"twopass\": {\"twopassMode\": \"None\", \"__current_case__\": 0, \"twopass_read_subset\": {\"__class__\": \"RuntimeValue\"}, \"sj_precalculated\": {\"__class__\": \"RuntimeValue\"}}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": null,
+            "type": "tool",
+            "uuid": "d9831955-0a9e-49f9-b240-ee8a9e363bf5",
+            "workflow_outputs": [
+                {
+                    "label": "RNA STAR on input dataset(s): mapped.bam",
+                    "output_name": "mapped_reads",
+                    "uuid": "ad7f953a-9a96-462b-a914-b623282373d4"
+                },
+                {
+                    "label": "RNA STAR on input dataset(s): splice junctions.bed",
+                    "output_name": "splice_junctions",
+                    "uuid": "a75b32ac-129a-456c-844b-e860495c1bf7"
+                },
+                {
+                    "label": "RNA STAR on input dataset(s): log",
+                    "output_name": "output_log",
+                    "uuid": "947094c9-52ba-49ed-a6d1-975b94ad839d"
+                }
+            ]
+        }
+    },
+    "tags": [
+        "transcriptomics",
+        "RNA-seq"
+    ],
+    "uuid": "dacee86c-dfbe-49e4-809e-93721d4afe54",
+    "version": 9
+}

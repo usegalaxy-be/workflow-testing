@@ -1,0 +1,7 @@
+- doc: Test bowtie2(drosophila genome) + htseq workflow
+  job: Mapping_bowtie2_htseq-job.yml
+  outputs:
+    htseq-count:
+      asserts:
+        has_text:
+          text: 'transcript:FBtr0302344	0'

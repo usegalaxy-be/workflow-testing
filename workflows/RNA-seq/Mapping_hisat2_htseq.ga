@@ -1,0 +1,212 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "Mapping HISAT2 (mouse genome) + htseq",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "forward"
+                }
+            ],
+            "label": "forward",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 592,
+                "height": 61,
+                "left": 462,
+                "right": 662,
+                "top": 531,
+                "width": 200,
+                "x": 462,
+                "y": 531
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "d19d09c9-1aa6-44e9-84ae-f3606a6072fa",
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 1,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "annotation"
+                }
+            ],
+            "label": "annotation",
+            "name": "Input dataset",
+            "outputs": [],
+            "position": {
+                "bottom": 706,
+                "height": 61,
+                "left": 742.5,
+                "right": 942.5,
+                "top": 645,
+                "width": 200,
+                "x": 742.5,
+                "y": 645
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false}",
+            "tool_version": null,
+            "type": "data_input",
+            "uuid": "7e653cdd-a04b-4b6c-8658-d424bfe5ba08",
+            "workflow_outputs": []
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.1.0+galaxy5",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "library|input_1": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "HISAT2",
+            "outputs": [
+                {
+                    "name": "output_alignments",
+                    "type": "bam"
+                }
+            ],
+            "position": {
+                "bottom": 527.5,
+                "height": 132,
+                "left": 803,
+                "right": 1003,
+                "top": 395.5,
+                "width": 200,
+                "x": 803,
+                "y": 395.5
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.1.0+galaxy5",
+            "tool_shed_repository": {
+                "changeset_revision": "a86e80d3c09c",
+                "name": "hisat2",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"adv\": {\"input_options\": {\"input_options_selector\": \"defaults\", \"__current_case__\": 0}, \"alignment_options\": {\"alignment_options_selector\": \"defaults\", \"__current_case__\": 0}, \"scoring_options\": {\"scoring_options_selector\": \"defaults\", \"__current_case__\": 0}, \"spliced_options\": {\"spliced_options_selector\": \"defaults\", \"__current_case__\": 0}, \"reporting_options\": {\"reporting_options_selector\": \"defaults\", \"__current_case__\": 0}, \"output_options\": {\"output_options_selector\": \"defaults\", \"__current_case__\": 0}, \"other_options\": {\"other_options_selector\": \"defaults\", \"__current_case__\": 0}}, \"library\": {\"type\": \"single\", \"__current_case__\": 0, \"input_1\": {\"__class__\": \"ConnectedValue\"}, \"rna_strandness\": \"\"}, \"reference_genome\": {\"source\": \"indexed\", \"__current_case__\": 0, \"index\": \"mus_musculus_GRCm39_ensembl_r104_genome\"}, \"sum\": {\"new_summary\": \"false\", \"summary_file\": \"false\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.1.0+galaxy5",
+            "type": "tool",
+            "uuid": "fe420314-dd6a-4107-82b4-ef4d88de70ae",
+            "workflow_outputs": [
+                {
+                    "label": "HISAT2 on input dataset(s): aligned reads (BAM)",
+                    "output_name": "output_alignments",
+                    "uuid": "23c6413e-ff4c-4c84-b1d1-7f63e567d960"
+                }
+            ]
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.9.1+galaxy1",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "gfffile": {
+                    "id": 1,
+                    "output_name": "output"
+                },
+                "samfile": {
+                    "id": 2,
+                    "output_name": "output_alignments"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool htseq-count",
+                    "name": "gfffile"
+                },
+                {
+                    "description": "runtime parameter for tool htseq-count",
+                    "name": "samfile"
+                }
+            ],
+            "label": null,
+            "name": "htseq-count",
+            "outputs": [
+                {
+                    "name": "counts",
+                    "type": "tabular"
+                },
+                {
+                    "name": "othercounts",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "bottom": 711,
+                "height": 152,
+                "left": 1127.5,
+                "right": 1327.5,
+                "top": 559,
+                "width": 200,
+                "x": 1127.5,
+                "y": 559
+            },
+            "post_job_actions": {
+                "RenameDatasetActioncounts": {
+                    "action_arguments": {
+                        "newname": "htseq-count"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "counts"
+                },
+                "RenameDatasetActionothercounts": {
+                    "action_arguments": {
+                        "newname": "htseq-count log"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "othercounts"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/lparsons/htseq_count/htseq_count/0.9.1+galaxy1",
+            "tool_shed_repository": {
+                "changeset_revision": "916cb26bd9d3",
+                "name": "htseq_count",
+                "owner": "lparsons",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"advanced_options\": {\"advanced_options_selector\": \"simple\", \"__current_case__\": 0}, \"featuretype\": \"exon\", \"gfffile\": {\"__class__\": \"RuntimeValue\"}, \"idattr\": \"Parent\", \"minaqual\": \"10\", \"mode\": \"union\", \"samfile\": {\"__class__\": \"RuntimeValue\"}, \"stranded\": \"yes\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.9.1+galaxy1",
+            "type": "tool",
+            "uuid": "7399d149-fcd9-429c-af88-2a9bdc187fec",
+            "workflow_outputs": [
+                {
+                    "label": "htseq-count",
+                    "output_name": "counts",
+                    "uuid": "7f8951fd-6a97-4a2d-a12e-0ab011d29e39"
+                },
+                {
+                    "label": "htseq-count log",
+                    "output_name": "othercounts",
+                    "uuid": "e1b6ad0c-e662-4b8e-99f5-23bb22417d34"
+                }
+            ]
+        }
+    },
+    "tags": [],
+    "uuid": "9b61a579-9339-433e-9660-3860cd8fc990",
+    "version": 8
+}

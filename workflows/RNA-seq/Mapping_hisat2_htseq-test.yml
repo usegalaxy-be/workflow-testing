@@ -1,0 +1,12 @@
+- doc: Test HISAT2 SE workflow
+  job: Mapping_hisat2_htseq-job.yml
+  outputs:
+    htseq-count log:
+      asserts:
+        has_text:
+          text: '__not_aligned	31949'
+    htseq-count:
+      asserts:
+        has_text:
+            text: 'transcript:ENSMUST00000192692	0'
+
