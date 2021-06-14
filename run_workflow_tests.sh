@@ -23,10 +23,9 @@ description: \"Workflow tests from $date_suffix\"
 | Workflow name | Testing results |
 | :------------- |: ---------------:|" > test_results.md
 
-
-
+echo $SHELL
+pwd
 find ./workflows/ -name "*.ga" -exec $SHELL -c '
-    # in production it should iterate over all .ga files it can find 
     function test_workflow () {
         #echo "calling function test_workflow"
         #echo "$1"
@@ -35,6 +34,7 @@ find ./workflows/ -name "*.ga" -exec $SHELL -c '
         #wf_path="./workflows/mini_test/mini_test.ga"
         #cat parsec_conf.yml
         wf_path=$1
+        echo $wf_path
         GALAXY_URL=$2
         GALAXY_BE_KEY=$3
         #echo "url is $GALAXY_URL"
@@ -55,7 +55,7 @@ find ./workflows/ -name "*.ga" -exec $SHELL -c '
             --engine external_galaxy \
             "$wf_path";
         planemo_exit_code=$?
-        echo "finished test"
+        #echo "finished test"
         set -e
         if (( planemo_exit_code > 0 )); then
             history_id=$(parsec --path parsec_conf.yml histories get_histories --name "$history_name" | jq -r .[0].id)
